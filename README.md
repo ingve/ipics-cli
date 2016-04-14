@@ -23,6 +23,8 @@ Examples
   ipics "Twin Peaks" -t tv-show
 ```
 
+![Screenshot](screenshot.png)
+
 ## Related
 
 - [ipics](https://github.com/ingve/ipics) - API for this module.
