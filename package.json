@@ -1,0 +1,35 @@
+{
+  "name": "ipics-cli",
+  "version": "0.0.1",
+  "description": "Search for thumbnails and images for Itunes media and open default browser to preview results",
+  "repository": "https://github.com/ingve/ipics-cli",
+  "scripts": {
+    "test": "ava"
+  },
+  "bin": {
+    "ipics": "cli.js"
+  },
+  "engines": {
+    "node": ">=5"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "author": "Ingve Vormestrand",
+  "license": "MIT",
+  "dependencies": {
+    "filenamify": "^1.2.1",
+    "ipics": "0.0.1",
+    "opn": "^4.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "execa": "^0.2.2"
+  },
+  "keywords": [
+    "cli",
+    "itunes",
+    "images",
+    "thumbnails"
+  ]
+}
