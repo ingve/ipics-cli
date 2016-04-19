@@ -25,16 +25,20 @@ const cli = meow(`
     }
 });
 
-if(cli.input.length === 0) {
+if(cli.input.length === 0 || cli.flags.type === undefined) {
   cli.showHelp();
 }
-
-ipics(cli.input[0], cli.flags.type).then(results => {
-  let html = '';
-  results.forEach(result => {
-    html += `<a href="${result.imageUrl}" title="${result.name}"><img src="${result.thumbnailUrl}"></a>`;
+else {
+  ipics(cli.input[0], cli.flags.type).then(results => {
+    let html = '';
+    results.forEach(result => {
+      html += `<a href="${result.imageUrl}" title="${result.name}"><img src="${result.thumbnailUrl}"></a>`;
+    });
+    const outputFilename = `${filenamify(cli.input[0])}.html`;
+    fs.writeFileSync(outputFilename, html);
+    opn(outputFilename, {wait: false}); // open in default browser
+  }).catch(error => {
+    console.error(error);
+    cli.showHelp();
   });
-  const outputFilename = `${filenamify(cli.input[0])}.html`;
-  fs.writeFileSync(outputFilename, html);
-  opn(outputFilename, {wait: false}); // open in default browser
-});
+}
